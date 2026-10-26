@@ -52,3 +52,15 @@ Stoppa servern med `Ctrl+C`.
 - Kör kommandona från projektmappen där `manage.py` ligger.
 - Databasen och dess inställningar konfigureras i `settings.py`.
 - `migrate` tillämpar befintliga migreringar. Om modellerna ändras behöver du normalt köra `makemigrations` först.
+
+## Testdata
+
+`GenerateSeedData.py` skapar 10 testinlägg med olika Lorem Ipsum-texter och slumpmässiga datum från de senaste 30 dagarna.
+
+Kör kommandot från projektmappen där `manage.py` ligger:
+
+```bash
+python GenerateSeedData.py
+```
+
+Kör det efter att databasen har migrerats. Varje körning skapar 10 nya inlägg, så upprepade körningar ger fler poster.
