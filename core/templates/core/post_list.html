@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+</head>
+<body>
+    <h1>Posts</h1>
+    <a href="{% url 'home' %}">Home Page</a>
+    </br>
+    <a href="{% url 'post_create' %}">Create Post</a>
+
+    {% for post in posts %}
+        <article>
+            <h2>{{ post.text }}</h2>
+            <p>Status: {{ post.status }}</p>
+            <p>Created: {{ post.created_date }}</p>
+            <a href="{% url 'post_update' post.id %}">Edit</a>
+            <a href="{% url 'post_delete' post.id %}">Delete</a>
+        </article>
+    {% empty %}
+        <p>No posts available yet.</p>
+    {% endfor %}
+</body>
+</html>
